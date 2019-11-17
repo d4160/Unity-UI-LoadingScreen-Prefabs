@@ -1,0 +1,15 @@
+{
+  "name": "d4160.ui-loading_screen-prefabs",
+  "displayName": "Unity UI Loading Screen Prefabs",
+  "version": "1.3.0",
+  "unity": "2017.1",
+  "description": "Provide many examples of loading screen based on michsky's Looader.",
+  "keywords": [
+      "unity",
+      "ui",
+      "loading screen"
+  ],
+  "author": {
+    "name": "d4160(Maranatha2031)"
+  }
+}
