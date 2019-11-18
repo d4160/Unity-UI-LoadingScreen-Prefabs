@@ -4,7 +4,9 @@
     using NaughtyAttributes;
     using UnityEngine;
     using UnityEngine.UI;
+#if UNITY_INPUT_SYSTEM
     using UnityEngine.InputSystem;
+#endif
 
     public class TextsAndAnyKeyLoadingScreen : NonInteractiveLoadingScreen
     {
@@ -158,12 +160,13 @@
 
         protected virtual bool ProcessAnyKey()
         {
+#if UNITY_INPUT_SYSTEM
             var keyboard = Keyboard.current;
             if (keyboard.anyKey.wasPressedThisFrame)
             {
                 return true;
             }
-
+#endif
             return false;
         }
 
