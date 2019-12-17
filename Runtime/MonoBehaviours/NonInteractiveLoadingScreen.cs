@@ -6,7 +6,7 @@
     using NaughtyAttributes;
     using d4160.Core;
 
-    public class NonInteractiveLoadingScreen : LoadingScreen
+    public class NonInteractiveLoadingScreen : LoadingScreenBase
     {
         [Header("RESOURCES")]
         public CanvasGroup canvasAlpha;

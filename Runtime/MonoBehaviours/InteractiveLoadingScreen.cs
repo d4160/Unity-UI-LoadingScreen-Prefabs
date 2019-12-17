@@ -1,6 +1,6 @@
 ﻿namespace d4160.UI
 {
-    public class InteractiveLoadingScreen : LoadingScreen
+    public class InteractiveLoadingScreen : LoadingScreenBase
     {
         public override void SetAsLoadCompleted()
         {

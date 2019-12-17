@@ -7,7 +7,7 @@
     using UniRx;
     using UnityEngine;
 
-    public abstract class LoadingScreen : Singleton<LoadingScreen>, ILoadingScreen
+    public abstract class LoadingScreenBase : Singleton<LoadingScreenBase>, ILoadingScreen
     {
         public static event AsyncOperationProgress OnLoadingProgress;
         public static event Action OnLoadCompleted;
