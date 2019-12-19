@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class LoaderBase : MonoBehaviour
+﻿namespace d4160.UI
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using UnityEngine;
 
-    // Update is called once per frame
-    void Update()
+    public abstract class LoaderBase : MonoBehaviour, ILoader
     {
-        
+        protected virtual void Awake()
+        {
+            LoadingPrefabsManagerBase.Instance.SetInstanced(this);
+        }
+
+        public abstract void StartLoader();
+
+        public abstract void StopLoader();
     }
 }

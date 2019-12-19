@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ILoader : MonoBehaviour
+﻿namespace d4160.UI
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using UnityEngine;
 
-    // Update is called once per frame
-    void Update()
+    public interface ILoader
     {
-        
+        void StartLoader();
+
+        void StopLoader();
     }
 }

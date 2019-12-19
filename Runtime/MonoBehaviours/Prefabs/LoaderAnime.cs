@@ -4,11 +4,9 @@
 	/// <summary>
 	/// Simple behaviour to animate particles around to create a typical "Ajax Loader". this is actually very important to visual inform the user that something is happening
 	/// or better say that the application is not frozen, so a animation of some sort helps reassuring the user that the system is idle and well.
-	///
-	/// TODO: hide when connection failed.
-	///
 	/// </summary>
-	public class LoaderAnime : MonoBehaviour {
+	public class LoaderAnime : LoaderBase
+	{
 
 		#region Public Variables
 
@@ -39,10 +37,12 @@
 		/// <summary>
 		/// MonoBehaviour method called on GameObject by Unity during early initialization phase.
 		/// </summary>
-		void Awake()
+		protected override void Awake()
 		{
+			base.Awake();
+
 			// cache for efficiency
-			_particleTransform =particles.GetComponent<Transform>();
+			_particleTransform = particles.GetComponent<Transform>();
 			_transform = GetComponent<Transform>();
 		}
 
@@ -50,13 +50,14 @@
 		/// <summary>
 		/// MonoBehaviour method called on GameObject by Unity on every frame.
 		/// </summary>
-		void Update () {
+		protected virtual void Update()
+		{
 
 			// only care about rotating particles if we are animating
 			if (_isAnimating)
 			{
 				// we rotate over time. Time.deltaTime is mandatory to have a frame rate independant animation,
-				_transform.Rotate(0f,0f,speed*Time.deltaTime);
+				_transform.Rotate(0f, 0f, speed * Time.deltaTime);
 
 				// we move from the center to the desired radius to prevent the visual artifacts of particles jumping from their current spot, it's not very nice visually
 				// so the particle is centered in the scene so that when it starts rotating, it doesn't jump and slowy we animate it to its final radius giving a smooth transition.
@@ -70,17 +71,17 @@
 		/// <summary>
 		/// Starts the loader animation. Becomes visible
 		/// </summary>
-		public void StartLoaderAnimation()
+		public override void StartLoader()
 		{
 			_isAnimating = true;
-			_offset = new Vector3(radius,0f,0f);
+			_offset = new Vector3(radius, 0f, 0f);
 			particles.SetActive(true);
 		}
 
 		/// <summary>
 		/// Stops the loader animation. Becomes invisible
 		/// </summary>
-		public void StopLoaderAnimation()
+		public override void StopLoader()
 		{
 			particles.SetActive(false);
 		}
